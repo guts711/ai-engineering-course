@@ -1,17 +1,13 @@
 # Week 01: From Python script to API
 
-Meet the group, use the shared workspace, and begin understanding how a Python API handles requests.
+Meet the group, review the shared Git workflow, and build a small FastAPI service. The course project is still undecided and will be introduced next class; the notes API is a standalone teaching exercise.
 
-[Theory notes](notes.md) · [Lecture code](code/) · [Optional exercises](exercises.md)
+[Lesson 1 guide](session-01.md) · [Theory notes](notes.md) · [Runnable code](code/) · [Optional exercises](exercises.md)
 
-## Planned sessions
+## Session 1
 
-### Session 1
+Introductions and syllabus, short Git playground practice, then a FastAPI build-along: a GET endpoint, a POST body, temporary storage, query filtering, automatic docs, and validation/error responses. Finish by making and committing a small independent change.
 
-[Introduction and first contribution](session-01.md): student introductions, course overview, a short Python activity, Git/GitHub basics, playground practice, and an introduction committed to the shared repository.
+## Session 2
 
-### Session 2
-
-Begin with a Python/setup bridge if the first lesson shows it is needed. Otherwise, trace request → server → JSON, run `GET /health`, and change its response. Introduce HTTP methods and validated FastAPI input as time and readiness allow; move the notes API exercise to the following session if necessary.
-
-These are lesson plans. Finished notes and runnable lecture examples will be added as teaching progresses.
+Introduce the selected course project and connect it to the syllabus. Review questions from lesson 1 and extend API design as needed: path parameters, missing-resource handling, and update/delete operations. Use observed progress to decide how much fits before moving toward persistence.

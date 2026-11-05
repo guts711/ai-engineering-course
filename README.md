@@ -2,7 +2,7 @@
 
 Lecture notes, teaching code, and shared student practice with Zohidjon.
 
-We build one assistant step by step: Python API → database → LLM integration → search and RAG → agents → evaluation → deployment. Learn the mechanism in Python, then explore its framework equivalent.
+Course topics: Python API → database → LLM integration → search and RAG → agents → evaluation → deployment. Learn the mechanism in Python, then explore its framework equivalent. The course project is still being decided and will be introduced in a later class; lesson examples are practice exercises.
 
 ## Start here
 
@@ -40,7 +40,7 @@ resources/                    Reading and references
 setup/                        Getting started
 ```
 
-Lecture notes and runnable examples are being prepared. The initial repository contains the outline and places to save them, not a completed course implementation.
+Lesson 1 now includes a student guide, theory notes, and a runnable FastAPI example. Later lecture notes and examples are being prepared; this is not a completed course implementation.
 
 ## Working together
 

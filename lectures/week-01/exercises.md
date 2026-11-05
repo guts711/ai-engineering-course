@@ -1,9 +1,16 @@
 # Week 01: Optional practice
 
-add a note title constraint, error responses, a README, and two automated route checks.
+Keep your work in `student-work/<your-github-username>/week-01/`. The notes API is a practice example; the course project will be introduced later.
 
-## Discuss
+## Core independent change
 
-“What happens between sending JSON and executing your Python function?”
+Add `GET /about` returning an API name and your name. Test the endpoint, then commit your change. In a short README, explain how to start your version and describe one successful request and one failed request.
 
-Save experiments in `student-work/<your-github-username>/` or link your own project there. A small attempt, question, or explanation is welcome. There are no fixed deadlines or mandatory grades. See [student instructions](../../student-work/README.md).
+## Choose an extension
+
+- **Path parameter:** implement `GET /notes/{note_id}`. Return the matching note or `HTTPException(status_code=404, detail="Note not found")`. Compare an integer ID that does not exist with an ID such as `abc` that fails integer validation.
+- **Query parameter:** add an optional result limit and define what zero or a negative value should do. Validate it rather than relying on Python slicing behavior.
+- **Validation:** add a length constraint for content, or reject titles consisting only of whitespace. Demonstrate a valid and an invalid input.
+- **Failure investigation:** create a note, restart the server, and explain why it disappeared. Propose what would need to change to preserve it.
+
+One small working change is enough. No fixed deadline or mandatory grade. See the [student-work guide](../../student-work/README.md) for pushing.
