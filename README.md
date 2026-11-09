@@ -46,8 +46,8 @@ Session 00 covers introductions, Git/GitHub, virtual environments and package ma
 
 ## Working together
 
-The instructor maintains `lectures/`, `resources/`, and `setup/`. Students normally change only their own folder under `student-work/`. Suggestions and questions can be raised in Issues; pull requests are optional.
+The instructor maintains `lectures/`, `resources/`, and `setup/`. Students fork the repository, change only their own folder under `student-work/`, and submit a pull request. Follow the [homework instructions](student-work/README.md). Suggestions and questions can be raised in Issues.
 
-Repository collaborators with write access can technically edit all folders. Folder boundaries are a shared convention, not separate access controls. Everyone with repository read access can see student work.
+Students push to their own forks and do not need write access to the course repository. Everyone with repository read access can see submitted student work.
 
 Keep API keys and real `.env` files out of Git. Use `.env.example` with placeholders. Store large recordings elsewhere and add approved links instead.

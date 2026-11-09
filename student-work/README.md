@@ -1,44 +1,68 @@
-# Student work
+# Upload and update homework
 
-A shared place for required practice, homework, questions, and project links. Complete assigned work and save it here or link your project as instructed. If you are blocked, share your progress, ask for help, and finish the task after resolving the issue.
+**Fork → edit → commit → push → pull request.** You push to your own copy; the instructor reviews and merges your work.
 
-Assignments are kept in their week’s folder. [Homework 01](../lectures/week-01/assignment01.md) requires a separate public repository and submission of its URL; follow that brief rather than copying its project into this shared folder.
+Replace `YOUR-USERNAME` with your GitHub username.
 
-## Your folder
+Follow each assignment's submission requirements first. [Homework 01](../lectures/week-01/assignment01.md) requires a separate public repository and submission of its URL; use this guide for work submitted to the shared course repository.
 
-Use your GitHub username:
+## 1. Set up once
 
-```text
-student-work/your-username/
-  README.md
-  week-01/
-  week-02/
-  projects/
-```
-
-Create only the folders you need. For a cumulative assistant project, keep one project in `projects/assistant/` and update it over time instead of copying it every week. You can also keep a separate personal repository and link it from your README.
-
-In your README, describe what you completed, how to run it, the checks you performed, and any remaining blockers. Practice and homework are required; follow the instructor's submission instructions for each assignment.
-
-## Save and push
-
-The instructor must first give you write access. After cloning the course repository, run these commands from its root, replacing `your-username` with your actual username:
+Open [the course repository](https://github.com/zohidjon-m/ai-engineering-course) and click **Fork → Create fork**. Then run:
 
 ```powershell
-git pull --rebase origin main
-# Create or edit files inside student-work/your-username/.
-git status
-git add student-work/your-username/
-git commit -m "Add my practice work"
-git pull --rebase origin main
-git push origin main
+git clone https://github.com/YOUR-USERNAME/ai-engineering-course.git
+cd ai-engineering-course
+git remote add upstream https://github.com/zohidjon-m/ai-engineering-course.git
 ```
 
-Pull before starting and again before pushing because this is a shared repository. Stage only your own folder. If Git reports a conflict, ask for help; do not force-push. No pull request is required for normal practice.
+Already cloned the instructor's repository? After creating your fork, run these inside your existing clone instead:
 
-## Shared space
+```powershell
+git remote rename origin upstream
+git remote add origin https://github.com/YOUR-USERNAME/ai-engineering-course.git
+```
 
-- Edit your own folder; ask before changing another student's work or lecture files.
-- Everyone with repository access can read the work here. Folders do not provide private access.
-- Keep keys, passwords, personal data, local environments, and large datasets out of Git.
-- If you want feedback, open an Issue with a link to your file and a specific question.
+## 2. Start homework
+
+Commit any current work before switching branches. Use a new branch name for each homework:
+
+```powershell
+git switch main
+git fetch upstream
+git merge --ff-only upstream/main
+git switch -c homework/week-01
+```
+
+Create or edit files in `student-work/YOUR-USERNAME/week-01/`. Add a short README explaining what you tried, how to run it, and any questions.
+
+## 3. Upload and submit
+
+```powershell
+git status
+git add student-work/YOUR-USERNAME/
+git commit -m "Add week 01 homework"
+git push -u origin homework/week-01
+```
+
+On GitHub, open your fork and click **Compare & pull request**. Choose:
+
+- **Base repository:** `zohidjon-m/ai-engineering-course`
+- **Base branch:** `main`
+- **Compare branch:** `homework/week-01` in your fork
+
+Click **Create pull request**. The instructor will review and merge it.
+
+## 4. Update the same homework
+
+While its pull request is open, edit files on the same branch, then run:
+
+```powershell
+git add student-work/YOUR-USERNAME/
+git commit -m "Update week 01 homework"
+git push
+```
+
+The existing pull request updates automatically. After it is merged, repeat step 2 with a new branch for further changes.
+
+Only edit your own folder. Never upload API keys, real `.env` files, or `.venv/`. Submitted work is visible to everyone with repository access. If a command fails, ask for help; do not force-push.
