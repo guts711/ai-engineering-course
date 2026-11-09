@@ -1,13 +1,14 @@
-# Week 01: From Python script to API
+# Week 01: Development foundations and APIs
 
-Meet the group, review the shared Git workflow, and build a small FastAPI service. The course project is still undecided and will be introduced next class; the notes API is a standalone teaching exercise.
+[Session 00 recap](session-00.md) · [Notes index](notes.md) · [Prepared FastAPI code](code/) · [Optional future exercises](exercises.md)
 
-[Lesson 1 guide](session-01.md) · [Theory notes](notes.md) · [Runnable code](code/) · [Optional exercises](exercises.md)
+## Session 00 — Completed
 
-## Session 1
+- Introductions: programming experience, current skills, and learning goals.
+- Git and GitHub: local history, shared repositories, and the basic workflow.
+- Virtual environments and package management: project isolation, installing dependencies, and choosing the right interpreter.
+- Request–response: clients, servers, methods, paths, headers, bodies, and status codes.
 
-Introductions and syllabus, short Git playground practice, then a FastAPI build-along: a GET endpoint, a POST body, temporary storage, query filtering, automatic docs, and validation/error responses. Finish by making and committing a small independent change.
+## Next session — Planned
 
-## Session 2
-
-Introduce the selected course project and connect it to the syllabus. Review questions from lesson 1 and extend API design as needed: path parameters, missing-resource handling, and update/delete operations. Use observed progress to decide how much fits before moving toward persistence.
+Apply request–response concepts with FastAPI: run a local server, create routes, accept input, and inspect responses. The existing notes API is a prepared practice example, not a completed Session 00 activity. The course project remains undecided and will be introduced separately.

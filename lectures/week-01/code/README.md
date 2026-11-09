@@ -1,6 +1,6 @@
-# Lesson 1: Run the notes API
+# Prepared FastAPI exercise: Run the notes API
 
-This is the completed reference for a small classroom exercise. Students build it incrementally in their own folder; it does not decide the course project.
+This is a prepared reference for a future classroom exercise. It was not covered in Session 00. Students build it incrementally in their own folder; it does not decide the course project.
 
 ## Windows / PowerShell
 

@@ -1,4 +1,4 @@
-"""Lesson 1: a small, in-memory notes API for learning FastAPI."""
+"""Prepared FastAPI exercise: a small, in-memory notes API."""
 
 from fastapi import FastAPI
 from pydantic import BaseModel, Field

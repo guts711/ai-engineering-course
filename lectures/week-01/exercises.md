@@ -1,4 +1,6 @@
-# Week 01: Optional practice
+# Prepared FastAPI practice for a future session
+
+These exercises were not part of Session 00. For review of the opening class, see the [Session 00 notes](session-00.md).
 
 Keep your work in `student-work/<your-github-username>/week-01/`. The notes API is a practice example; the course project will be introduced later.
 
