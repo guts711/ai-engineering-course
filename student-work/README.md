@@ -1,6 +1,8 @@
 # Student work
 
-A shared place for experiments, optional homework, questions, and project links. Unfinished work is welcome.
+A shared place for required practice, homework, questions, and project links. Complete assigned work and save it here or link your project as instructed. If you are blocked, share your progress, ask for help, and finish the task after resolving the issue.
+
+Assignments are kept in their week’s folder. [Homework 01](../lectures/week-01/assignment01.md) requires a separate public repository and submission of its URL; follow that brief rather than copying its project into this shared folder.
 
 ## Your folder
 
@@ -16,7 +18,7 @@ student-work/your-username/
 
 Create only the folders you need. For a cumulative assistant project, keep one project in `projects/assistant/` and update it over time instead of copying it every week. You can also keep a separate personal repository and link it from your README.
 
-In your README, briefly describe what you tried, how to run it, and anything you want help with. No fixed submission template, deadline, or grading is required.
+In your README, describe what you completed, how to run it, the checks you performed, and any remaining blockers. Practice and homework are required; follow the instructor's submission instructions for each assignment.
 
 ## Save and push
 

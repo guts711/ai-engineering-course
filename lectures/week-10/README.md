@@ -2,7 +2,7 @@
 
 diagnose quality failures and test operational limits.
 
-[Theory notes](notes.md) · [Lecture code](code/) · [Optional exercises](exercises.md)
+[Theory notes](notes.md) · [Lecture code](code/)
 
 ## Planned sessions
 

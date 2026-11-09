@@ -2,7 +2,7 @@
 
 implement cosine search and connect the math to retrieval behavior.
 
-[Theory notes](notes.md) · [Lecture code](code/) · [Optional exercises](exercises.md)
+[Theory notes](notes.md) · [Lecture code](code/)
 
 ## Planned sessions
 

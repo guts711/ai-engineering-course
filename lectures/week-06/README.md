@@ -2,7 +2,7 @@
 
 persist search data and measure retrieval separately from answer generation.
 
-[Theory notes](notes.md) · [Lecture code](code/) · [Optional exercises](exercises.md)
+[Theory notes](notes.md) · [Lecture code](code/)
 
 ## Planned sessions
 

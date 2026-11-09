@@ -2,7 +2,7 @@
 
 implement the tool loop and compare it with the fixed RAG path.
 
-[Theory notes](notes.md) · [Lecture code](code/) · [Optional exercises](exercises.md)
+[Theory notes](notes.md) · [Lecture code](code/)
 
 ## Planned sessions
 

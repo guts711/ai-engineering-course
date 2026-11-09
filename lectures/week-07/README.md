@@ -2,7 +2,7 @@
 
 answer from evidence, identify unsupported answers, and measure one change.
 
-[Theory notes](notes.md) · [Lecture code](code/) · [Optional exercises](exercises.md)
+[Theory notes](notes.md) · [Lecture code](code/)
 
 ## Planned sessions
 

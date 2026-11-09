@@ -2,7 +2,7 @@
 
 run the full service reproducibly and inspect an online request.
 
-[Theory notes](notes.md) · [Lecture code](code/) · [Optional exercises](exercises.md)
+[Theory notes](notes.md) · [Lecture code](code/)
 
 ## Planned sessions
 

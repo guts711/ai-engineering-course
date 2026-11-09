@@ -2,7 +2,7 @@
 
 explain the Python-to-LangGraph mapping, define a useful capstone, and enforce approval for a small write action.
 
-[Theory notes](notes.md) · [Lecture code](code/) · [Optional exercises](exercises.md)
+[Theory notes](notes.md) · [Lecture code](code/)
 
 ## Planned sessions
 

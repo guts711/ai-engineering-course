@@ -6,7 +6,7 @@ This recap covers our opening class: introductions, Git and GitHub, Python virtu
 
 We introduced ourselves and discussed our programming experience, what we can currently build, and what we want to learn. These conversations help shape the course pace and examples.
 
-The course project has not been finalized. See the [course overview](../../README.md) for the working topic sequence. Practice is informal; questions and unfinished attempts are welcome.
+The course project has not been finalized. See the [course overview](../../README.md) for the working topic sequence. Practice is required. Complete the assigned work and save your results. Questions are welcome; if you are blocked, ask for help and follow through until the task is complete.
 
 ## 2. Git and GitHub
 
@@ -36,22 +36,7 @@ Saving a file is not the same as committing it. Committing is not the same as up
 
 [Coddy Git Playground](https://coddy.tech/playground/git) provides a place to practice without changing our course repository. Its Run button replays the complete script; use the step view to inspect the state after each command.
 
-Optional review script for its Linux terminal:
-
-```sh
-git init
-echo "Git records local project history." > learning.md
-git status
-git add learning.md
-git commit -m "Add Git recap"
-echo "GitHub hosts shared repositories." >> learning.md
-git diff
-git add learning.md
-git commit -m "Explain GitHub"
-git log --oneline
-```
-
-For real course work, follow the [student-work guide](../../student-work/README.md). Edit and stage your own folder. Keep environments and credentials out of Git.
+Use the playground as a reference for reviewing Git commands. The actual assignment given after this class is linked in the homework section below.
 
 ## 3. Virtual environments and package management
 
@@ -144,13 +129,15 @@ Method and path together select an API operation. A normal address-bar navigatio
 
 Git saves versions of our source code. GitHub shares them. A virtual environment holds the project's installed Python packages. A package installer installs the dependencies. When we run a server, clients communicate with it through requests and responses.
 
-## Optional recap questions
+## Assignment given after Session 00
 
-1. What is the difference between saving a file, committing it, and pushing it?
-2. Why might two Python projects need separate environments?
-3. What is the difference between `venv` and `pip`?
-4. How do you check which interpreter and pip you are using?
-5. In an HTTP exchange, which parts belong to the request and which to the response?
+Complete [Homework 01](assignment01.md) before the next session:
+
+1. Watch the assigned [HTTP video](https://youtu.be/a3C1DMswClQ).
+2. Complete the provided Git/GitHub homework, including the review topics and practical repository work.
+3. Submit your public repository URL and be ready to explain the commands and concepts.
+
+The linked assignment contains the complete homework instructions and video. Further assignments will be provided by the instructor when issued.
 
 Next, we can apply these foundations by implementing a small API with FastAPI. The [prepared example](code/README.md) is future practice, not a record of work completed in Session 00.
 

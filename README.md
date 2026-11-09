@@ -7,13 +7,14 @@ Course topics: Python API → database → LLM integration → search and RAG �
 ## Start here
 
 - [Session 00: Introductions and development foundations](lectures/week-01/session-00.md)
+- [Week 01 assignment](lectures/week-01/assignment01.md)
 - [Setup](setup/README.md)
 - [Student work and how to push](student-work/README.md)
 - [Learning resources](resources/README.md)
 
 ## Lecture plan
 
-The 12-week sequence below is a working outline. Dates and pacing can change. Exercises are informal: try things, save progress, ask questions, and learn together. No grading system or strict homework deadlines are configured.
+The 12-week sequence below is a working outline. Dates and pacing can change. Practice and homework are required. Complete the assigned tasks, save your work, and submit it as instructed. Ask for help when blocked and follow through on unfinished work. Assignment-specific submission details will be provided by the instructor.
 
 | Week | Topic |
 |---|---|
@@ -35,7 +36,7 @@ The 12-week sequence below is a working outline. Dates and pacing can change. Ex
 ```text
 lectures/week-01/notes.md       Theory and explanations
 lectures/week-01/code/         Instructor examples
-lectures/week-01/exercises.md  Optional practice
+lectures/week-01/assignment01.md Homework, video, and submission instructions
 student-work/<username>/      Student experiments and project links
 resources/                    Reading and references
 setup/                        Getting started
