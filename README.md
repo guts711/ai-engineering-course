@@ -7,7 +7,7 @@ Course topics: Python API → database → LLM integration → search and RAG �
 ## Start here
 
 - [Session 00: Introductions and development foundations](lectures/week-01/session-00.md)
-- [Week 01 assignment](lectures/week-01/assignment01.md)
+- [Week 01 lessons and assignments](lectures/week-01/README.md)
 - [Setup](setup/README.md)
 - [Student work and how to push](student-work/README.md)
 - [Learning resources](resources/README.md)
@@ -42,7 +42,7 @@ resources/                    Reading and references
 setup/                        Getting started
 ```
 
-Session 00 covers introductions, Git/GitHub, virtual environments and package management, and request–response. A runnable FastAPI example is prepared for a future session. Later lecture notes and examples are being prepared; this is not a completed course implementation.
+Session 00 covers introductions, Git/GitHub, virtual environments and package management, and request–response. Product Catalog lessons, runnable Session 01–02 references, and draft follow-up assignments are prepared for instructor review. Later lecture notes and examples are being prepared; this is not a completed course implementation.
 
 ## Working together
 

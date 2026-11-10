@@ -1,36 +1,42 @@
-# FastAPI reference for a future session
+# FastAPI concept reference — Product Catalog
 
-An HTTP endpoint connects a method and path to an application operation. `GET /notes` and `POST /notes` use the same path but perform different operations.
+Use alongside [Session 01](session-01.md) and [Session 02](session-02.md).
 
-## Follow one request
+| Concept | Product example | General pattern |
+|---|---|---|
+| Resource | Product | A thing the API represents |
+| Collection | `/products` | List/filter resources |
+| Path input | `/products/1` | Identify one resource |
+| Query input | `?category=books` | Modify selection or retrieval |
+| Body input | JSON sent to POST | Supply structured data |
+| Request model | `ProductCreate` | Validate incoming structure |
+| Response model | `ProductRead` | Define returned data |
+| Application error | Missing product → 404 | Handle expected failure |
+| State | Product dictionary | Store application data |
+| Test | Create, then GET | Check behavior reproducibly |
 
-Client → HTTP request → Uvicorn server → FastAPI routing and input validation → handler function → JSON response.
+## Request flow
 
-The request contains a method, a path, headers, possibly query parameters, and sometimes a body. The response contains a status, headers, and usually a body. In this example, Python return values become JSON responses.
+Client sends method/path/headers/body → Uvicorn receives HTTP → FastAPI matches operation and validates inputs → application function runs → output model validates/filters where configured → JSON response.
 
-## Inputs and validation
+## Statuses in our contract
 
-`q` in `/notes?q=git` is a query parameter. The `NoteCreate` model describes the POST JSON body. FastAPI validates the declared input before calling the handler. Validation checks shape and constraints; it does not prove the content is meaningful or correct.
+200 reads/replacements; 201 creation; 204 deletion with no body; 404 missing route/resource; 405 unsupported method; 422 invalid declared input. Unexpected exceptions and invalid server output are server failures; do not turn every exception into 200 or 422.
 
-## Statuses in the prepared example
+## Distinctions to understand
 
-| Code | Meaning in this example |
-|---|---|
-| 200 | Successful read |
-| 201 | Note created |
-| 404 | Unknown route |
-| 405 | Known path, unsupported method |
-| 422 | Request data failed validation |
+- GET and POST may share a path because method plus path identifies the operation.
+- `None` can mean a query filter was omitted; `False` is a real requested value.
+- A nullable Pydantic field is not automatically omittable; an explicit default matters.
+- Validation can include type conversion. It does not establish meaningful names, truth, or permission.
+- PUT here requires a full representation and preserves the ID; PATCH would need separate partial-update rules.
+- Response filtering demonstrates an output contract; it does not grant or check access.
+- In-memory state disappears on restart/reload, and each worker would have its own copy. The counter is a teaching mechanism, not concurrent database ID allocation.
+- Float prices keep the example short. Real financial values need a deliberate representation and rounding policy.
+- We use ordinary `def` functions for this in-memory example. Async I/O is a later topic; adding `async` alone does not make blocking work concurrent.
 
-## Temporary storage
+## Transfer the pattern
 
-The notes list exists only inside the running process. Saving the Python source or committing it does not save the runtime list. Reloading or restarting resets it. Durable storage is a separate topic.
+When moving from products to tasks or documents, ask: What identifies the resource? What can the client submit? What does the server generate? Which values are valid? What happens if it does not exist? What evidence proves it works?
 
-## Keep these distinctions clear
-
-- Git commit saves a version locally; push shares its commits with the remote.
-- A Python script can finish; an API server stays running to handle requests.
-- An ordinary browser navigation makes a GET request; use the interactive docs or an HTTP client to send a POST body.
-- `/docs` is a client interface for trying the API; a separate frontend is not required today.
-
-See the [prepared code and setup](code/README.md) and the official [FastAPI tutorial](https://fastapi.tiangolo.com/tutorial/).
+Official references: [FastAPI tutorial](https://fastapi.tiangolo.com/tutorial/), [response models](https://fastapi.tiangolo.com/tutorial/response-model/), [Pydantic fields](https://docs.pydantic.dev/latest/concepts/fields/).

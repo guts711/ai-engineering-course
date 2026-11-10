@@ -1,18 +1,22 @@
-# Week 01: Development foundations and APIs
+# Week 01: FastAPI through a Product Catalog
 
-[Session 00 recap](session-00.md) · [Notes index](notes.md) · [Homework 01](assignment01.md) · [Prepared FastAPI code](code/)
+**Review draft:** Sessions 01–02 and Homework 02–03 are proposed teaching materials, not records of completed classes. Homework 01 remains the assignment already issued after Session 00. Homework 02 is for the single Wednesday between classes; Homework 03 is a four-day project.
 
-## Session 00 — Completed
+| Material | Purpose |
+|---|---|
+| [Session 00](session-00.md) | Completed introductions, Git/GitHub, environments, and HTTP foundations |
+| [Session 01](session-01.md) | Run an API, read products, receive input, and create products |
+| [Session 02](session-02.md) | Output contracts, errors, full replacement, deletion, and tests |
+| [Concept reference](fastapi-notes.md) | Vocabulary, common mistakes, and generalization |
+| [Code and setup](code/README.md) | Separate runnable stopping points for both sessions |
+| [Homework 01](assignment01.md) | Previously issued Git/GitHub homework and HTTP video |
+| [Homework 02](assignment02.md) | Required Wednesday extension: availability filtering |
+| [Homework 03](assignment03.md) | Required four-day Task Tracker API project |
 
-- Introductions: programming experience, current skills, and learning goals.
-- Git and GitHub: local history, shared repositories, and the basic workflow.
-- Virtual environments and package management: project isolation, installing dependencies, and choosing the right interpreter.
-- Request–response: clients, servers, methods, paths, headers, bodies, and status codes.
+## Teaching boundary
 
-## Next session — Planned
+The Product Catalog is a classroom example. The Task Tracker is an independent backend project. Neither commits the course to a particular final AI project. Use in-memory data for this week. Databases, authentication, checkout, payments, deployment, and concurrent production writes are later concerns.
 
-Apply request–response concepts with FastAPI: run a local server, create routes, accept input, and inspect responses. The existing notes API is a prepared practice example, not a completed Session 00 activity. The course project remains undecided and will be introduced separately.
+## Weekly outcome
 
-## Assignment after Session 00
-
-Watch the assigned HTTP video and complete the provided Git/GitHub homework. See [Homework 01](assignment01.md) for the video, complete instructions, and submission requirements. Future assignments will be added when issued.
+Students can add an endpoint, identify where its input comes from, validate it, define its output, handle a missing resource, test success and failure, and explain the complete request flow.
