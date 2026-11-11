@@ -2,7 +2,7 @@
 
 These are completed teaching references for [Session 01](../session-01.md) and [Session 02](../session-02.md). Build incrementally during class. They are not the final AI project or production-ready shop software.
 
-- `session01.py`: first-session stopping point, before the stock-field homework.
+- `session01.py`: first-session stopping point, before the independent customer-endpoint homework.
 - `session02.py`: second-session reference including stock filters, output models, PUT, and DELETE.
 - `test_main.py`: behavior checks for the Session 02 API.
 - `requirements.txt`: pinned direct runtime dependencies.

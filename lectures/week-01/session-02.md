@@ -6,9 +6,13 @@ We'll continue the same catalog. We'll spend about ten minutes on Wednesday's wo
 
 The [completed reference](code/session02.py) and [setup guide](code/README.md) are here when you need to compare your version. Keep working in your own catalog folder; we aren't starting another application today.
 
-## First, let's look at the availability filter
+## First, let's look at your customer endpoints
 
-Show a request without a stock filter, then one with `in_stock=true` and one with `in_stock=false`. What happens if we write this?
+Show one successful customer registration and one rejected request. Explain where the request body becomes a Pydantic model, how the customer ID is assigned, and why customer IDs should not share the product counter. We'll use these examples to discuss which parts were reusable and which changed for a different resource.
+
+## A small addition to today's product example
+
+The completed Session 02 reference adds availability to products for our discussion of defaults and required replacement fields. This was not part of the homework. Use that prepared version to compare a request without a stock filter with `in_stock=true` and one with `in_stock=false`. What happens if we write this?
 
 ```python
 if in_stock:
@@ -17,7 +21,7 @@ if in_stock:
 
 It skips the branch when the client explicitly asks for false. We need `if in_stock is not None:` because omission and false mean different things.
 
-This is also a good place to make our Pydantic field rules precise. In the creation model, your homework added:
+For this example, I add the following field to the creation model and an availability value to each seed record:
 
 ```python
 in_stock: bool = True

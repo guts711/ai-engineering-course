@@ -10,7 +10,7 @@
 | [Concept reference](fastapi-notes.md) | Vocabulary, common mistakes, and generalization |
 | [Code and setup](code/README.md) | Separate runnable stopping points for both sessions |
 | [Homework 01](assignment01.md) | Previously issued Git/GitHub homework and HTTP video |
-| [Homework 02](assignment02.md) | Required Wednesday extension: availability filtering |
+| [Homework 02](assignment02.md) | Required Wednesday assignment: create a customer endpoint |
 | [Homework 03](assignment03.md) | Required four-day Task Tracker API project |
 
 ## Teaching boundary

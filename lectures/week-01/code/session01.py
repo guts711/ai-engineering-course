@@ -1,4 +1,4 @@
-"""Session 01 stopping point, before Wednesday's in_stock assignment."""
+"""Session 01 stopping point, before Wednesday's customer-endpoint assignment."""
 
 from fastapi import FastAPI, HTTPException, Path, Query
 from pydantic import BaseModel, Field

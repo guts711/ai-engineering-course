@@ -207,7 +207,7 @@ Also, a Pydantic model is not a database model. Creating `ProductCreate(...)` do
 
 Show me one successful POST and one rejected POST. Explain where the path ID, query category, and body model come from. Then explain which repeated checks Pydantic saved us from writing and which responsibilities remain in our code.
 
-For Wednesday, complete [Homework 02](assignment02.md): add availability and filter available/unavailable products. It is required, but deliberately small enough for the one-day gap. Save your work in your fork and follow the [submission guide](../../student-work/README.md).
+For Wednesday, complete [Homework 02](assignment02.md): build a new `POST /customers` endpoint using the same model, validation, storage, and ID pattern as product creation. It is required, but deliberately small enough for the one-day gap. Save your work in your fork and follow the [submission guide](../../student-work/README.md).
 
 ## References
 
