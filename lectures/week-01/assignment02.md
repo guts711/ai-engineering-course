@@ -1,7 +1,5 @@
 # Homework 02 — Product availability
 
-**Status:** proposed assignment for instructor review; intended to be issued after Session 01.
-
 **Required. Due:** before Session 02. **Time budget:** 45–75 minutes during Wednesday, the single day between sessions.
 
 Extend your own Session 01 Product Catalog. Do not start another application or copy the Session 02 completed solution.
