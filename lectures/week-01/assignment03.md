@@ -2,11 +2,34 @@
 
 **Status:** proposed project for instructor review; intended to be issued after Session 02.
 
-**Required. Due:** before the next session after the four-day gap. **Estimated effort:** 4–6 hours total, spread across those days. No calendar dates are assumed.
+**Required. Due:** before the next session after the four-day gap. **Estimated effort:** 4–6 hours total, spread across those days.
 
-Build independently with FastAPI and Pydantic. Transfer what you learned with products to a task resource. This is a backend learning project, not the final AI course project.
+Build a small API for keeping track of tasks. You will use the same ideas we practiced with products: models, routes, validation, errors, and tests. Work independently, and use the [Session 02 notes](session-02.md) and [product reference](code/session02.py) when you need a reminder. You should be able to explain your own code.
 
-## Data contract
+## What you are building
+
+A client can create a task, list tasks, find one task, replace it, or delete it. For example, a client sends this to `POST /tasks`:
+
+```json
+{"title": "Study FastAPI"}
+```
+
+The API responds with status **201** and a task like this:
+
+```json
+{"id": 1, "title": "Study FastAPI", "description": "", "completed": false}
+```
+
+The server chooses the ID. If the client leaves out `description` or `completed`, the API uses the defaults shown above.
+
+## Before you start
+
+1. Make sure you can run the Session 02 catalog and its tests using the [setup guide](code/README.md). You do not need to copy the catalog application into your project.
+2. In your fork, create `student-work/YOUR-USERNAME/week-01/task-tracker/`. Use a new branch for this homework, such as `homework/task-tracker`; see the [submission guide](../../student-work/README.md).
+3. Add an application file, a test file, a dependency file, and a README in that folder. You can choose your filenames; make sure your README commands match them.
+4. Start with an empty in-memory task collection. A database, frontend, authentication, deployment, and AI integration are not required.
+
+## Step 1 — Decide what a task looks like
 
 | Field | Rule |
 |---|---|
@@ -15,47 +38,69 @@ Build independently with FastAPI and Pydantic. Transfer what you learned with pr
 | `description` | String |
 | `completed` | Boolean |
 
-For creation, require `title`; default `description` to `""` and `completed` to `false`. For PUT, require all three editable fields: `title`, `description`, and `completed`. Clients do not choose the ID. Use separate input/output models as appropriate.
+Define Pydantic models for the different operations:
 
-Store tasks in memory. Start with an empty collection. Data is lost on restart; state this in your README. No database, frontend, authentication, cloud deployment, or AI integration is required.
+- **Create:** require `title`; default `description` to `""` and `completed` to `false`.
+- **Replace:** require all three editable fields: `title`, `description`, and `completed`.
+- **Read:** include the editable fields and the server-generated `id`.
 
-## Required operations
+Clients do not choose the ID. An increasing counter, like the one in Session 02, can generate IDs without reusing a deleted task's ID. Think about which model belongs in a request and which belongs in `response_model`.
 
-| Operation | Success | Expected failure |
-|---|---|---|
-| `POST /tasks` | 201 with the created task | 422 for invalid/missing input |
-| `GET /tasks` | 200 with all tasks; optional `completed` filter | 422 for an unparseable boolean filter |
-| `GET /tasks/{task_id}` | 200 with one task | 404 for absent positive ID; 422 for invalid ID |
-| `PUT /tasks/{task_id}` | 200 with the replacement, preserving ID | 404 for absent positive ID; 422 for invalid/incomplete body |
-| `DELETE /tasks/{task_id}` | 204 with an empty body | 404 for absent positive ID; 422 for invalid ID |
+## Step 2 — Create and read tasks
 
-`completed=false` must work as a filter, not behave like omission. A filter with no matches returns 200 and `[]`. PUT replaces an existing task and does not create an unknown ID. Repeating deletion returns 404 under this API contract.
+Implement these routes first:
 
-## Required automated checks
+| Route | Expected behavior |
+|---|---|
+| `POST /tasks` | Validate and store a task; return it with **201**. Invalid or missing required input returns **422**. |
+| `GET /tasks` | Return all tasks with **200**. When there are none, return `[]`. |
+| `GET /tasks/{task_id}` | Return the task with **200**, **404** for an absent positive ID, or **422** for an invalid ID. |
 
-Use `TestClient` and `pytest`. Reset state between tests. Check:
+Run your application and open `/docs`. Create two tasks and retrieve each by its returned ID. Try creating a task without a title and getting an ID that does not exist. Check that a rejected creation did not add a task.
 
-1. Create a task and retrieve the same task; verify defaults and server ID.
-2. Filter completed and incomplete tasks, including false and no matches.
-3. Reject a missing/empty/too-long title without changing stored tasks.
-4. Return 404 for a missing task; distinguish it from an invalid path value.
-5. Replace all editable fields, preserve the ID, and reject an incomplete replacement without mutation.
-6. Delete with an empty 204 body; retrieving/deleting again gives 404.
-7. Delete a task, create another, and verify that existing records are not overwritten and IDs are not reused.
+**Checkpoint:** Can you explain where the ID comes from, and why `/tasks/abc` and a valid but missing ID have different results?
 
-These are behaviors to verify; a test may check several assertions. Do not assert that every new ID equals the current collection length plus one.
+## Step 3 — Filter, replace, and delete
 
-## Suggested progression
+Add these behaviors:
 
-- **Day 1:** models, app startup, create/list/get.
-- **Day 2:** completion filter, replacement, deletion, errors.
-- **Day 3:** automated checks; fix observed failures.
-- **Day 4:** verify a fresh setup, finish README, and submit.
+- `GET /tasks` accepts an optional `completed` query parameter. `completed=true` returns completed tasks; `completed=false` returns incomplete tasks. Omitting it returns all tasks. No matches returns **200** and `[]`; an unparseable boolean returns **422**. Remember that `false` is a value, not an omitted filter.
+- `PUT /tasks/{task_id}` requires all editable fields and replaces an existing task while preserving its ID. Return **200** and the updated task. An absent positive ID returns **404**; an invalid ID or invalid/incomplete body returns **422**. An incomplete request must not change the task. PUT does not create a missing task.
+- `DELETE /tasks/{task_id}` removes an existing task and returns **204** with an empty body. An absent positive ID returns **404** and an invalid ID returns **422**. Deleting the same task again returns **404**.
 
-## Submission and explanation
+Try these in `/docs`: create both a completed and an incomplete task, filter for each, replace one, then delete it and try to retrieve it. Delete a task and create another; verify the new ID is not reused and existing tasks remain intact.
 
-Place your project in `student-work/YOUR-USERNAME/week-01/task-tracker/` in your fork. Include source, dependency file, tests, and README. Do not upload `.venv/` or secrets. Follow the [fork/pull-request submission guide](../../student-work/README.md).
+**Checkpoint:** Why does `if completed is not None:` work for this filter when `if completed:` would not?
 
-Your README must include installation, run and test commands, example requests, actual test results, the in-memory limitation, and one bug you investigated. Explain meaningful AI assistance and how you verified the code, if used.
+## Step 4 — Write automated checks
 
-Next class, be ready to demonstrate creation, filtering, a rejected request, and one test; explain the request flow and begin a small change without copying a complete solution. The assignment is assessed through working behavior and understanding, not extra frameworks or styling.
+Use `pytest` and FastAPI's `TestClient`. The [Session 02 test file](code/test_main.py) shows how to create a client and reset an in-memory store with a fixture. Reset your task data and ID counter between tests so tests do not depend on their order. You do not need to start Uvicorn to run tests.
+
+Write checks for these behaviors. One test may cover several assertions:
+
+1. Create and retrieve a task; verify its defaults and server-generated ID.
+2. Filter completed and incomplete tasks, including `false` and a filter with no matches.
+3. Reject a missing, empty, and too-long title without changing stored tasks.
+4. Return 404 for a missing task and 422 for an invalid path value.
+5. Replace all editable fields, preserve the ID, and reject an incomplete replacement without changing the task.
+6. Delete a task with an empty 204 body; retrieving or deleting it again gives 404.
+7. Delete a task, create another, and verify existing records are not overwritten and IDs are not reused.
+
+Run the tests, read any failure, fix your code, and rerun them. Do not assume an ID equals the current collection length plus one: deletion changes the length.
+
+## Step 5 — Prepare and submit
+
+Restart your server and check the task list again. The collection starts empty because it is stored in memory. Explain this limitation in your README.
+
+Your project folder must contain source code, a dependency file, tests, and a README. In the README include:
+
+- Installation, server startup, and test commands.
+- Example requests and the actual results of your tests.
+- The in-memory limitation and one bug you investigated.
+- Any meaningful AI assistance you used and how you verified its output.
+
+Commit and push your work to your fork, then open a pull request using the [submission guide](../../student-work/README.md). Do not upload `.venv/` or secrets, and do not edit the instructor reference.
+
+Next class, be ready to demonstrate creation, filtering, a rejected request, and one test. Explain the request flow and be ready to begin a small change without copying a complete solution. The assignment is assessed through working behavior and understanding, not extra frameworks or styling.
+
+A suggested schedule: steps 1–2 on day 1, step 3 on day 2, step 4 on day 3, and step 5 on day 4. If you get stuck, ask for help and continue with another step where possible.
