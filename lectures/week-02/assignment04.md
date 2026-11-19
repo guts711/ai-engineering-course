@@ -2,6 +2,8 @@
 
 Implement `GET /loans?open=true` using SQLAlchemy. Compare the endpoint’s response to the query you wrote in the library lesson.
 
+Before starting, read the [SQLAlchemy preview](session-04.md#8-preview-sqlalchemy) and watch the selected video. Identify where the starter maps a table, opens a session, and runs a query. [SQLAlchemy video](https://youtu.be/AKQ3XEDI9Mw)
+
 ## Start here
 
 1. Follow the [starter setup](code/README.md) using your hosted PostgreSQL connection. Load the [library seed data](code/library.sql) into an empty teaching database.

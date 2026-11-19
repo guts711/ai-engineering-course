@@ -16,4 +16,13 @@
 - Preview the rows with a **`SELECT` using the same `WHERE`** before updating or deleting them. Without `WHERE`, the statement targets every row.
 - A **`LEFT JOIN`** retains each row from the left table. After joining books to loans, `COUNT(loans.id)` counts actual loans while `COUNT(*)` counts every result row, including the one preserved for a book with zero loans.
 
+| Join | Rows included |
+|---|---|
+| `INNER JOIN` | Each pair that matches the `ON` condition. |
+| `LEFT JOIN` | Matching pairs plus unmatched left rows, with `NULL` in the right columns. |
+| `RIGHT JOIN` | Matching pairs plus unmatched right rows, with `NULL` in the left columns. |
+| `FULL JOIN` | Matching pairs plus unmatched rows from either side, with `NULL` on the missing side. |
+
+See the [reading event examples and join visuals](session-04.md#2-the-four-join-types) for the same two tables queried with all four joins.
+
 [PostgreSQL SQL tutorial](https://www.postgresql.org/docs/current/tutorial-sql.html) · [Foreign keys](https://www.postgresql.org/docs/current/tutorial-fk.html) · [Transactions](https://www.postgresql.org/docs/current/tutorial-transactions.html)
