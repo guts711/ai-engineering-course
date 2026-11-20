@@ -480,7 +480,7 @@ flowchart LR
     objects --> response["BookRead · JSON response"]
 ```
 
-For homework, apply this pattern to the `loans` table and its open/returned filter. [SQLAlchemy ORM Quick Start](https://docs.sqlalchemy.org/en/20/orm/quickstart.html)
+For homework, use SQLAlchemy to join library records, filter loans, and save a return inside a transaction. [SQLAlchemy ORM Quick Start](https://docs.sqlalchemy.org/en/20/orm/quickstart.html)
 
 ### Watch after class
 

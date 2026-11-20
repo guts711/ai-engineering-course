@@ -20,6 +20,13 @@ class Book(Base):
     title: Mapped[str] = mapped_column(Text)
 
 
+class Member(Base):
+    __tablename__ = "members"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(Text)
+
+
 class Loan:
     # Homework: turn this into an ORM model for the existing loans table.
     pass
@@ -42,6 +49,21 @@ class LoanRead(BaseModel):
     returned_on: date | None
 
 
+class LoanDetails(LoanRead):
+    book_title: str
+    borrower_name: str
+
+
+class BookLoanRead(BaseModel):
+    book_id: int
+    title: str
+    loan_id: int | None
+
+
+class LoanReturn(BaseModel):
+    returned_on: date
+
+
 engine = create_engine(os.environ["DATABASE_URL"])
 app = FastAPI(title="Library SQL Homework")
 
@@ -57,10 +79,26 @@ def list_books(session: Annotated[Session, Depends(get_session)]):
     return session.scalars(statement).all()
 
 
-@app.get("/loans", response_model=list[LoanRead])
+@app.get("/loans", response_model=list[LoanDetails])
 def list_loans(
     session: Annotated[Session, Depends(get_session)],
     is_open: Annotated[bool | None, Query(alias="open")] = None,
 ):
-    # Homework: select the loans that match is_open and order them by ID.
-    raise HTTPException(status_code=501, detail="Complete the loan query for Homework 04")
+    # Homework: join books and members, apply is_open, and order by loan ID.
+    raise HTTPException(status_code=501, detail="Complete the joined loan query")
+
+
+@app.get("/books/loans", response_model=list[BookLoanRead])
+def list_book_loans(session: Annotated[Session, Depends(get_session)]):
+    # Homework: left join from books to loans, including books with no loans.
+    raise HTTPException(status_code=501, detail="Complete the book left join")
+
+
+@app.patch("/loans/{loan_id}/return", response_model=LoanRead)
+def return_loan(
+    loan_id: int,
+    body: LoanReturn,
+    session: Annotated[Session, Depends(get_session)],
+):
+    # Homework: find and return the loan inside one transaction.
+    raise HTTPException(status_code=501, detail="Complete the return transaction")
