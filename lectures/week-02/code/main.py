@@ -28,7 +28,12 @@ class Member(Base):
 
 
 class Loan:
-    # Homework: turn this into an ORM model for the existing loans table.
+    # Homework: map loans, including its foreign keys and nullable return date.
+    pass
+
+
+class BookNote:
+    # Homework: map book_notes with a generated ID, book foreign key, and text.
     pass
 
 
@@ -37,6 +42,14 @@ class BookRead(BaseModel):
 
     id: int
     title: str
+
+
+class BookNoteRead(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    book_id: int
+    text: str
 
 
 class LoanRead(BaseModel):
@@ -92,6 +105,15 @@ def list_loans(
 def list_book_loans(session: Annotated[Session, Depends(get_session)]):
     # Homework: left join from books to loans, including books with no loans.
     raise HTTPException(status_code=501, detail="Complete the book left join")
+
+
+@app.get("/books/{book_id}/notes", response_model=list[BookNoteRead])
+def list_book_notes(
+    book_id: int,
+    session: Annotated[Session, Depends(get_session)],
+):
+    # Homework: check the book, then retrieve its notes in note ID order.
+    raise HTTPException(status_code=501, detail="Complete the book notes query")
 
 
 @app.patch("/loans/{loan_id}/return", response_model=LoanRead)

@@ -7,7 +7,7 @@ How can a library app remember who has a book after the app restarts? We’ll mo
 | [Session 03 — Create, read, and change tables](session-03.md) | Learn SQL syntax and write queries and changes against three related tables. |
 | [After Session 03 — Local PostgreSQL practice](session-03-practice.md) | Install PostgreSQL and practice reading and changing campus event registrations. |
 | [Session 04 — Join, count, and roll back](session-04.md) | Combine rows, count loans for each book, and see how a transaction handles changes. |
-| [Homework 04 — Library API with SQLAlchemy](assignment04.md) | Build inner and left joins and a return transaction through FastAPI. |
+| [Homework 04 — Library API with SQLAlchemy](assignment04.md) | Create and fill tables through the ORM, retrieve notes, join records, and return a book in a transaction. |
 | [SQL reference](notes.md) | Review the syntax and common mistakes. |
 | [Setup, seed data, and starter](code/README.md) | Set up the classroom data in postgres.new and connect the homework app to PostgreSQL. |
 
